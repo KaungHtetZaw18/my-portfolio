@@ -6,7 +6,6 @@ import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
 import { Toaster } from './components/ui/sonner';
 import './index.css';
-
 export default function App() {
   const [currentPath, setCurrentPath] = useState('/');
 
