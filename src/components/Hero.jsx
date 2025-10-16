@@ -43,8 +43,9 @@ export default function Hero({ onOpenContact }) {
           </p>
 
           {/* Bigger, responsive headline */}
-          <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl leading-[1.08] font-semibold max-w-3xl">
-            Crafting fast, minimal interfaces with a focus on real users
+          <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            Hey, I’m Kaung Htet Zaw{" "}
+            <span className="text-neutral-500">(Kaung)</span>
           </h1>
 
           {/* Larger body on big screens */}
