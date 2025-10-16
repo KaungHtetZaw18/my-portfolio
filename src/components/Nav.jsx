@@ -34,7 +34,7 @@ export default function Nav({ onOpenContact }) {
             className="w-10 h-10 md:w-12 md:h-12 select-none"
           />
           <span className="text-[17px] md:text-xl font-semibold tracking-tight">
-            Kaung-space
+            Kaung-Space
           </span>
         </a>
 

@@ -45,7 +45,6 @@ export default function ContactModal({ open, onClose }) {
   ];
   // --------------------
 
-  // ESC to close
   useEffect(() => {
     function onKey(e) {
       if (e.key === "Escape") onClose?.();
@@ -54,7 +53,6 @@ export default function ContactModal({ open, onClose }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
-  // Autofocus first field
   useEffect(() => {
     if (open && dialogRef.current) {
       const el = dialogRef.current.querySelector("input, textarea, button");
@@ -64,13 +62,9 @@ export default function ContactModal({ open, onClose }) {
 
   if (!open) return null;
 
-  // IMPORTANT: Make sure your EmailJS template variables match these `name` attributes:
-  // name="name", name="email", name="website", name="message"
-  // In the EmailJS template, use {{name}}, {{email}}, {{website}}, {{message}}
   async function handleSubmit(e) {
     e.preventDefault();
     if (!formRef.current) return;
-
     setSending(true);
     setStatus(null);
 
@@ -81,12 +75,9 @@ export default function ContactModal({ open, onClose }) {
         formRef.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-
       setSending(false);
       setStatus("sent");
       formRef.current.reset();
-
-      // Optionally close after a short delay
       // setTimeout(() => onClose?.(), 1200);
     } catch (err) {
       console.error("EmailJS error:", err);
@@ -97,7 +88,7 @@ export default function ContactModal({ open, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[80] flex items-center justify-center p-2 sm:p-4"
+      className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center p-0 sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-title"
@@ -109,13 +100,19 @@ export default function ContactModal({ open, onClose }) {
       {/* Dialog */}
       <div
         ref={dialogRef}
-        className="relative z-[81] w-full max-w-6xl rounded-xl sm:rounded-2xl bg-white text-black shadow-2xl border overflow-hidden"
+        className="
+          relative z-[81] w-full max-w-6xl 
+          rounded-t-2xl sm:rounded-2xl bg-white text-black shadow-2xl border
+          /* mobile sheet feel */
+          max-h-[min(100vh-0.5rem,900px)] overflow-y-auto
+          pb-[max(env(safe-area-inset-bottom),1rem)]
+        "
       >
         {/* Close */}
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 grid place-items-center w-8 h-8 rounded-md text-neutral-500 hover:bg-neutral-100 hover:text-black transition"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 grid place-items-center w-9 h-9 rounded-md text-neutral-500 hover:bg-neutral-100 hover:text-black transition"
         >
           <svg
             viewBox="0 0 24 24"
@@ -137,43 +134,50 @@ export default function ContactModal({ open, onClose }) {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="p-4 sm:p-6 lg:p-10 flex flex-col gap-3 sm:gap-4"
+            className="p-4 sm:p-6 lg:p-8 flex flex-col gap-3 sm:gap-4"
           >
-            <label className="text-xs">
+            <h3
+              id="contact-title"
+              className="text-xl sm:text-2xl font-semibold mb-1 sm:mb-0"
+            >
+              Say hello
+            </h3>
+
+            <label className="text-[13px] sm:text-xs">
               Your name
               <input
                 name="name"
                 required
-                className="mt-1 w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-300"
+                className="mt-1 w-full rounded-xl border px-3 py-3 sm:py-2.5 outline-none focus:ring-2 focus:ring-neutral-300"
               />
             </label>
 
-            <label className="text-xs">
+            <label className="text-[13px] sm:text-xs">
               Email
               <input
                 name="email"
                 type="email"
                 required
-                className="mt-1 w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-300"
+                className="mt-1 w-full rounded-xl border px-3 py-3 sm:py-2.5 outline-none focus:ring-2 focus:ring-neutral-300"
               />
             </label>
 
-            <label className="text-xs">
+            <label className="text-[13px] sm:text-xs">
               Website (optional)
               <input
                 name="website"
-                className="mt-1 w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-300"
                 placeholder="https://…"
+                className="mt-1 w-full rounded-xl border px-3 py-3 sm:py-2.5 outline-none focus:ring-2 focus:ring-neutral-300"
               />
             </label>
 
-            <label className="text-xs">
+            <label className="text-[13px] sm:text-xs">
               How can I help?
               <textarea
                 name="message"
                 required
                 rows={5}
-                className="mt-1 w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-neutral-300"
+                className="mt-1 w-full rounded-xl border px-3 py-3 sm:py-2.5 outline-none focus:ring-2 focus:ring-neutral-300"
               />
             </label>
 
@@ -189,18 +193,19 @@ export default function ContactModal({ open, onClose }) {
               </div>
             )}
 
-            <div className="mt-2 flex gap-2">
+            {/* Buttons: full width on mobile, side-by-side from sm: */}
+            <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
               <button
                 type="submit"
                 disabled={sending}
-                className="bg-black text-white px-5 py-3 rounded-xl hover:bg-neutral-800 transition disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-black text-white px-5 py-3 rounded-xl hover:bg-neutral-800 transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send"}
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="border border-black px-5 py-3 rounded-xl hover:bg-black hover:text-white transition"
+                className="w-full border border-black px-5 py-3 rounded-xl hover:bg-black hover:text-white transition"
               >
                 Close
               </button>
@@ -208,20 +213,15 @@ export default function ContactModal({ open, onClose }) {
           </form>
 
           {/* Right: Info */}
-          <div className="p-4 sm:p-6 lg:p-10 border-t md:border-t-0 md:border-l">
-            <h3
-              id="contact-title"
-              className="text-xl sm:text-2xl font-semibold"
-            >
-              Get in touch
-            </h3>
-            <p className="mt-2 sm:mt-3 text-sm text-neutral-600 max-w-sm">
+          <div className="p-4 sm:p-6 lg:p-8 border-t md:border-t-0 md:border-l">
+            <h3 className="text-xl sm:text-2xl font-semibold">Get in touch</h3>
+            <p className="mt-2 text-[15px] sm:text-sm text-neutral-600 max-w-sm">
               Collaborations, quick chats, or feedback — I’m happy to hear from
               you.
             </p>
 
             {/* Email (copyable) */}
-            <div className="mt-4 sm:mt-6 relative inline-flex items-center group cursor-pointer select-none">
+            <div className="mt-5 sm:mt-6 relative inline-flex items-center group cursor-pointer select-none">
               <svg
                 width="18"
                 height="18"
@@ -237,7 +237,7 @@ export default function ContactModal({ open, onClose }) {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 1400);
                 }}
-                className="text-[15px] md:text-base font-medium hover:underline"
+                className="text-[15px] sm:text-base font-medium hover:underline"
                 title="Click to copy"
                 aria-live="polite"
               >
@@ -249,7 +249,7 @@ export default function ContactModal({ open, onClose }) {
             </div>
 
             {/* Social grid */}
-            <ul className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            <ul className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {socials.map((s) => (
                 <li key={s.name} className="flex justify-center">
                   <a
@@ -266,7 +266,7 @@ export default function ContactModal({ open, onClose }) {
                         alt={s.name}
                         width="40"
                         height="40"
-                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain opacity-90 group-hover:opacity-100"
+                        className="w-7 h-7 sm:w-9 sm:h-9 object-contain opacity-90 group-hover:opacity-100"
                       />
                     </div>
                     <span className="mt-1.5 text-[10px] text-neutral-600 hidden sm:block">
