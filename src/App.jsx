@@ -1,51 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
-import ResumePage from './pages/ResumePage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
-import { Toaster } from './components/ui/sonner';
-import './index.css';
+import { useState } from "react";
+import Nav from "./components/Nav.jsx";
+import Hero from "./components/Hero.jsx";
+import About from "./components/About.jsx";
+import Skills from "./components/Skills.jsx";
+import Projects from "./components/Projects.jsx";
+import Footer from "./components/Footer.jsx";
+import ContactModal from "./components/ContactModal.jsx";
+import Experience from "./components/Experience.jsx";
+import SectionDividerBottom from "./components/SectionDividerBottom.jsx";
+import SectionDividerTop from "./components/SectionDividerTop.jsx";
+import Education from "./components/Education.jsx";
+
 export default function App() {
-  const [currentPath, setCurrentPath] = useState('/');
-
-  useEffect(() => {
-    // Set initial path
-    setCurrentPath(window.location.pathname);
-
-    // Listen for navigation changes
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  const navigate = (path) => {
-    setCurrentPath(path);
-    window.history.pushState({}, '', path);
-  };
-
-  const renderPage = () => {
-    switch (currentPath) {
-      case '/':
-        return <HomePage navigate={navigate} />;
-      case '/resume':
-        return <ResumePage />;
-      case '/portfolio':
-        return <PortfolioPage />;
-      case '/contact':
-        return <ContactPage />;
-      default:
-        return <HomePage navigate={navigate} />;
-    }
-  };
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <Layout currentPath={currentPath} navigate={navigate}>
-      {renderPage()}
-      <Toaster />
-    </Layout>
+    <div className="min-h-screen font-sans bg-white text-neutral-900 antialiased">
+      <Nav onOpenContact={() => setContactOpen(true)} />
+      <main>
+        <Hero onOpenContact={() => setContactOpen(true)} />
+        <SectionDividerTop subtle />
+
+        <About />
+        <SectionDividerBottom subtle />
+
+        <Skills />
+        <SectionDividerTop subtle />
+
+        <Experience />
+        <SectionDividerBottom subtle />
+
+        <Education />
+        <SectionDividerTop subtle />
+
+        <Projects />
+        <SectionDividerBottom subtle />
+      </main>
+      <Footer />
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
+    </div>
   );
 }
