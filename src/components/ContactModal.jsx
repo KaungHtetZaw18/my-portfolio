@@ -19,7 +19,7 @@ export default function ContactModal({ open, onClose }) {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/your-id",
+      href: "https://www.linkedin.com/in/kaung-h-zaw/",
       icon: "/social/linkedin.svg",
     },
     {

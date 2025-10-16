@@ -32,7 +32,7 @@ export default function Footer() {
             <span className="text-neutral-300">·</span>
             <a
               className="hover:underline underline-offset-4"
-              href="https://kaungspace.blog"
+              href="https://kaung-space.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
