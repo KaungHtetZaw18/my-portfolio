@@ -29,12 +29,18 @@ export default function Nav({ onOpenContact }) {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2">
           <img
-            src="/me.png"
+            src="/me-nb.png"
             alt="Logo"
-            className="w-10 h-10 md:w-12 md:h-12 select-none"
+            className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 shrink-0 select-none object-contain"
           />
-          <span className="text-[17px] md:text-xl font-semibold tracking-tight">
-            Kaung-Space
+
+          <span className="flex flex-col leading-none tracking-tight">
+            <span className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl">
+              Kaung-Space
+            </span>
+            <span className="text-[10px] sm:text-xs md:text-sm text-neutral-600">
+              React Developer
+            </span>
           </span>
         </a>
 
