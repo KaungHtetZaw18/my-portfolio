@@ -31,7 +31,7 @@ export default function Projects() {
             </span>
           </h2>
           <a
-            href="https://github.com/KaungHtetZaw18"
+            href="https://github.com/kaung-h-zaw"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm md:text-base text-neutral-600 hover:text-neutral-900 transition-colors"
