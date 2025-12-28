@@ -23,7 +23,7 @@ export default function Footer() {
           <nav className="flex items-center gap-4 md:gap-5">
             <a
               className="hover:underline underline-offset-4"
-              href="https://github.com/KaungHtetZaw18"
+              href="https://github.com/kaung-h-zaw"
               target="_blank"
               rel="noopener noreferrer"
             >
