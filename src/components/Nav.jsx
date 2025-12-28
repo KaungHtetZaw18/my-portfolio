@@ -114,7 +114,7 @@ export default function Nav({ onOpenContact }) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenContact}
-              className="inline-flex items-center gap-2 rounded-xl border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors"
+              className="group inline-flex items-center gap-2 rounded-xl border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors"
             >
               <img
                 src="/icons/message.svg"
