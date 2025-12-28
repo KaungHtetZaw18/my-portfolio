@@ -74,7 +74,7 @@ export default function Education() {
               </h3>
               <ul className="space-y-1 text-base text-neutral-800">
                 <li>Burmese — Native</li>
-                <li>English — Advanced (C1)</li>
+                <li>English — Upper intermediate (B2)</li>
               </ul>
             </div>
           </div>
