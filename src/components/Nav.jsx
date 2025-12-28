@@ -29,7 +29,7 @@ export default function Nav({ onOpenContact }) {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2">
           <img
-            src="/man-avatar.svg"
+            src="/me.png"
             alt="Logo"
             className="w-10 h-10 md:w-12 md:h-12 select-none"
           />
