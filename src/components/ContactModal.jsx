@@ -14,7 +14,7 @@ export default function ContactModal({ open, onClose }) {
   const socials = [
     {
       name: "GitHub",
-      href: "https://github.com/KaungHtetZaw18",
+      href: "https://github.com/kaung-h-zaw",
       icon: "/social/github.svg",
     },
     {
