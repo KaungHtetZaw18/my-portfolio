@@ -119,7 +119,7 @@ export default function Nav({ onOpenContact }) {
               <img
                 src="/icons/message.svg"
                 alt=""
-                className="w-4 h-4 object-contain"
+                className="w-4 h-4 object-contain transition group-hover:invert"
               />
               Say Hello
             </button>
