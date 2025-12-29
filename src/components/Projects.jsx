@@ -5,7 +5,7 @@ const projects = [
     tags: ["HTML", "CSS", "JavaScript (ES5)", "Node.js", "Express", "QR"],
     link: "https://sendo-ebook.vercel.app/",
     code: "https://github.com/kaung-h-zaw/SENDO/",
-    img: "/sendo-preview.png",
+    img: "/Sendo.png",
     status: "live",
   },
   {
