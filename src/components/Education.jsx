@@ -32,18 +32,21 @@ export default function Education() {
                 <div className="space-y-4 text-neutral-800 text-base leading-relaxed">
                   <div>
                     <p className="font-semibold">
-                      Bachelor's Degree, Information Technology
+                      Bachelor of Information Technology (Computer Science)
                     </p>
-                    <p>Queensland University of Technology (QUT), Brisbane</p>
+                    <p>
+                      Queensland University of Technology (QUT) — Brisbane,
+                      Australia
+                    </p>
                     <p className="text-sm text-neutral-500">
                       07/2023 – 12/2024
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">
-                      Higher National Diploma, Computing
+                      Higher National Diploma (Computing)
                     </p>
-                    <p>GUSTO College, Yangon, Myanmar</p>
+                    <p>GUSTO College — Yangon, Myanmar</p>
                     <p className="text-sm text-neutral-500">
                       11/2019 – 02/2023
                     </p>
@@ -75,8 +78,8 @@ export default function Education() {
                   </div>
 
                   <p>
-                    QC37 English for Academic Purposes (EAP 2 Extended) — QUT
-                    College (Jun 2023)
+                    English for Academic Purposes (Advanced) — QUT College (Jun
+                    2023)
                   </p>
                 </div>
               </div>

@@ -34,28 +34,31 @@ export default function Experience() {
                   Capstone Project – Survey Platform
                 </h3>
                 <p className="text-sm md:text-base lg:text-lg text-neutral-600 mb-3">
-                  <span className="italic">Feb 2024 – Jun 2024 · Brisbane</span>
+                  The Guinea Group & QUT | Brisbane, Australia
                   <br />
-                  Associated by Queensland University of Technology (QUT) / The
-                  Guinea Group
+                  <span className="italic">Feb 2024 – Jun 2024</span>
                 </p>
                 <ul className="list-disc list-inside text-neutral-700 text-sm md:text-base lg:text-lg space-y-1 leading-relaxed">
                   <li>
-                    Developed and deployed a web-based survey platform for
-                    “Leadership Under Pressure” training on AWS.
+                    <strong>Engineered</strong> a responsive survey platform on{" "}
+                    <strong>AWS</strong>, delivering scalable access for
+                    'Leadership Under Pressure' training.
                   </li>
                   <li>
-                    Built and improved frontend features using{" "}
-                    <strong>React</strong> and <strong>Tailwind CSS</strong>,
-                    ensuring responsive and accessible UI.
+                    <strong>Built</strong> reusable UI components with{" "}
+                    <strong>React.js</strong> and <strong>Tailwind CSS</strong>,
+                    establishing a design system that accelerated development.
                   </li>
                   <li>
-                    Resolved backend issues and collaborated with teammates to
-                    deliver key functionality on schedule.
+                    <strong>Debugged</strong> complex API integrations using{" "}
+                    <strong>Postman</strong>, resolving backend issues and
+                    reducing data errors by 20%.
                   </li>
                   <li>
-                    Implemented Agile methodology with weekly sprints, using
-                    Trello, GitHub, and Slack for collaboration.
+                    <strong>Optimized</strong> Agile workflows via{" "}
+                    <strong>Trello</strong> and <strong>Slack</strong>, ensuring
+                    clean version control and timely delivery with{" "}
+                    <strong>GitHub</strong>.
                   </li>
                 </ul>
               </div>
