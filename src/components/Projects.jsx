@@ -21,10 +21,25 @@ const projects = [
 ];
 
 export default function Projects() {
+  const ExternalIcon = (size = 14) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="currentColor"
+        d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm11-3v8h-2V6.413l-7.793 7.794l-1.414-1.414L17.585 5H13V3z"
+      />
+    </svg>
+  );
+
   return (
     <section id="projects" className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4">
-        {/* Section Heading - Slides UP */}
+        {/* Section Heading */}
         <div className="flex items-end justify-between mb-10">
           <Reveal variant="up" triggerOnce>
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
@@ -40,17 +55,16 @@ export default function Projects() {
               href="https://github.com/kaung-h-zaw"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm md:text-base text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="flex items-center gap-1 text-sm md:text-base text-neutral-600 hover:text-neutral-900 transition-colors"
             >
-              View GitHub →
+              View GitHub {ExternalIcon(18)}
             </a>
           </Reveal>
         </div>
 
-        {/* Project Cards - ZOOM Effect */}
+        {/* Project Cards */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, index) => (
-            // Use variant="zoom" for the pop-in effect
             <Reveal key={index} delay={index * 150} width="100%" variant="zoom">
               {p.status === "coming-soon" ? (
                 <div className="h-full border rounded-lg p-6 flex flex-col items-center justify-center text-center bg-neutral-50 hover:bg-neutral-100 transition-colors">
@@ -99,17 +113,17 @@ export default function Projects() {
                         href={p.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-800 hover:underline"
+                        className="flex items-center gap-1 text-neutral-800 hover:underline"
                       >
-                        Live ↗
+                        Live {ExternalIcon(14)}
                       </a>
                       <a
                         href={p.code}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-neutral-500 hover:text-neutral-800 hover:underline"
+                        className="flex items-center gap-1 text-neutral-500 hover:text-neutral-800 hover:underline"
                       >
-                        Code ↗
+                        Code {ExternalIcon(14)}
                       </a>
                     </div>
                   </div>
