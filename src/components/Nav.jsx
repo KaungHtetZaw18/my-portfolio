@@ -39,7 +39,7 @@ export default function Nav({ onOpenContact }) {
               Kaung-Space
             </span>
             <span className="text-[10px] sm:text-xs md:text-sm text-neutral-600">
-              (React Developer)
+              (Personal Portfolio)
             </span>
           </span>
         </a>
